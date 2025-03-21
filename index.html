@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <p>아직도 2시간 남았다.</p>
+        
+        <!-- 시계를 표시할 div 추가 -->
+        <div id="clock"></div> 
+    </div>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+
+            var timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // 매 초마다 시계 업데이트
+        setInterval(updateClock, 1000);
+
+        // 페이지 로드 시에도 시계 업데이트
+        updateClock();
+    </script>
+</body>
+</html>
